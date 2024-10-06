@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/PrismarineJS/minecraft-data/data/pc/1.16/blocks"
+	"constants"
 )
 
 type Item struct {
@@ -79,23 +80,9 @@ type Pet struct {
 	CandyUsed int
 }
 
-var singleContainers = map[string]string{
-	"armor": "inv_armor",
-	"equipment": "equipment_contents",
-	"wardrobe": "wardrobe_contents",
-	"inventory": "inv_contents",
-	"enderchest": "ender_chest_contents",
-	"accessories": "talisman_bag",
-	"personal_vault": "personal_vault_contents",
-	"fishing_bag": "fishing_bag",
-	"potion_bag": "potion_bag",
-	"sacks_bag": "sacks_bag",
-	"candy_inventory": "candy_inventory_contents",
-	"carnival_mask_inventory": "carnival_mask_inventory_contents",
-}
-
-var bagContainers = []string{"fishing_bag", "potion_bag", "talisman_bag", "sacks_bag"}
-var sharedContainers = []string{"candy_inventory_contents", "carnival_mask_inventory_contents"}
+var singleContainers = constants.SingleContainers
+var bagContainers = constants.BagContainers
+var sharedContainers = constants.SharedContainers
 
 func parseItems(profileData *ProfileData, museumData *MuseumData, v2Endpoint bool) (map[string][]*Item, error) {
 	items := make(map[string][]*Item)
@@ -228,7 +215,7 @@ func postParseItems(profileData *ProfileData, items map[string][]*Item, v2Endpoi
 	if profileData.Pets != nil {
 		for _, pet := range profileData.Pets {
 			newPet := *pet
-			level := getPetLevel(&newPet)
+			level := constants.GetPetLevel(&newPet)
 			newPet.Level = level.Level
 			newPet.XPMax = level.XPMax
 			items["pets"] = append(items["pets"], &newPet)

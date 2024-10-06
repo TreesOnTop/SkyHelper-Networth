@@ -2,6 +2,7 @@ package calculators
 
 import (
 	"strings"
+	"constants"
 )
 
 type Essence struct {
@@ -30,7 +31,7 @@ func CalculateEssence(item Essence, prices map[string]int) *Essence {
 	return &Essence{
 		Name:       titleCase(strings.Split(item.ID, "_")[1]) + " Essence",
 		ID:         item.ID,
-		Price:      itemPrice * item.Count,
+		Price:      itemPrice * item.Count * constants.ApplicationWorth.Essence,
 		Calculation: []interface{}{},
 		Count:      item.Count,
 		Soulbound:  false,
