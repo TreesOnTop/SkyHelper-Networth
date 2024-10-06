@@ -4,6 +4,10 @@ import (
 	"strings"
 	"unicode"
 	"constants"
+	"github.com/Tnze/go-mc/nbt"
+	"github.com/PrismarineJS/minecraft-data/data/pc/1.16/blocks"
+	"github.com/PrismarineJS/minecraft-data/data/pc/1.16/items"
+	"github.com/PrismarineJS/minecraft-data/data/pc/1.16/recipes"
 )
 
 type Item struct {
@@ -28,7 +32,7 @@ type Item struct {
 			HotPotatoCount       int
 			DyeItem              string
 			ArtOfWarCount        int
-				ArtOfPeaceApplied    int
+					ArtOfPeaceApplied    int
 			FarmingForDummiesCount int
 			Polarvoid            int
 			DivanPowderCoating   int

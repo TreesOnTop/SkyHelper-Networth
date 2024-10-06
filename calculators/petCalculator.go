@@ -6,6 +6,10 @@ import (
 
 	"../constants"
 	"../helper"
+	"github.com/Tnze/go-mc/nbt"
+	"github.com/PrismarineJS/minecraft-data/data/pc/1.16/blocks"
+	"github.com/PrismarineJS/minecraft-data/data/pc/1.16/items"
+	"github.com/PrismarineJS/minecraft-data/data/pc/1.16/recipes"
 )
 
 type Pet struct {
